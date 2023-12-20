@@ -34,7 +34,7 @@ func NewLogger(opts ...Options) *Logger {
 }
 
 func (l *Logger) exeract(ctx context.Context, fields ...*Field) *logrus.Entry {
-	var logFields logrus.Fields
+	var logFields = make(logrus.Fields)
 	if len(fields) > 0 {
 		for _, item := range fields {
 			logFields[item.key] = item.value
